@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Full-page snap feel on desktop, like the reference site */
+@media (min-width: 1024px) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+  .snap-sec {
+    scroll-snap-align: start;
+  }
+}
+
+body {
+  @apply font-body text-white/75 antialiased;
+  background: linear-gradient(150deg, #10291F 0%, #1C4032 45%, #143327 78%, #0C231A 100%);
+  background-attachment: fixed;
+}
+
+h1, h2, h3, h4 {
+  @apply font-body text-white;
+}
+
+.accent {
+  color: #d9a441;
+}
+
+.heading-xl {
+  @apply text-4xl font-extralight leading-[1.15] tracking-wide text-white sm:text-5xl lg:text-6xl;
+}
+
+.heading-lg {
+  @apply text-3xl font-light tracking-wide text-white sm:text-4xl;
+}
+
+/* Outlined button, as on the reference design */
+.btn-line {
+  @apply inline-flex items-center justify-center gap-2 border-2 border-accent px-8 py-3 text-sm font-medium tracking-widest text-white transition-all duration-300;
+}
+.btn-line:hover {
+  @apply bg-accent/15 -translate-y-0.5;
+}
+
+.btn-solid {
+  @apply inline-flex items-center justify-center gap-2 bg-accent px-8 py-3.5 text-sm font-semibold tracking-widest text-base transition-all duration-300;
+}
+.btn-solid:hover {
+  @apply bg-accentlight -translate-y-0.5;
+}
+
+.container-site {
+  @apply mx-auto w-full max-w-7xl px-6 sm:px-10;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.7, 0.3, 1),
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Glowing node pulse for plexus graphics */
+.node-pulse {
+  animation: nodePulse 2.8s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@keyframes nodePulse {
+  0%, 100% { opacity: 0.25; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.6); }
+}
+
+/* Slow ambient drift for background constellation */
+@keyframes drift1 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(22px, -16px); }
+}
+@keyframes drift2 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-18px, 14px); }
+}
+.drift-a { animation: drift1 16s ease-in-out infinite; }
+.drift-b { animation: drift2 20s ease-in-out infinite; }
+
+@keyframes fadeup {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeup { animation: fadeup 0.9s cubic-bezier(0.2, 0.7, 0.3, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; scroll-snap-type: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .node-pulse, .drift-a, .drift-b, .animate-fadeup { animation: none !important; }
+}
+
+::selection {
+  background: #d9a441;
+  color: #0c231a;
+}

@@ -1,0 +1,59 @@
+export function LogoMark({ size = 44 }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 64 64"
+      fill="none"
+      aria-hidden="true"
+      className="shrink-0"
+    >
+      <defs>
+        <linearGradient id="flg" x1="8" y1="52" x2="56" y2="12" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#B9862E" />
+          <stop offset="1" stopColor="#F4DFA6" />
+        </linearGradient>
+      </defs>
+      {/* rising constellation line */}
+      <polyline
+        points="8,52 22,34 33,42 54,14"
+        stroke="url(#flg)"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+      {/* satellite links */}
+      <line x1="22" y1="34" x2="13" y2="17" stroke="#D9A441" strokeWidth="1" opacity="0.45" />
+      <line x1="33" y1="42" x2="46" y2="47" stroke="#D9A441" strokeWidth="1" opacity="0.45" />
+      {/* satellite dots */}
+      <circle cx="13" cy="17" r="1.8" fill="#E8CB84" opacity="0.8" />
+      <circle cx="46" cy="47" r="1.8" fill="#E8CB84" opacity="0.8" />
+      {/* main nodes */}
+      <circle cx="8" cy="52" r="2.8" fill="#FCF6E3" />
+      <circle cx="22" cy="34" r="2.8" fill="#FCF6E3" />
+      <circle cx="33" cy="42" r="2.8" fill="#FCF6E3" />
+      {/* summit star */}
+      <circle cx="54" cy="14" r="7" fill="#D9A441" opacity="0.28" />
+      <circle cx="54" cy="14" r="3.4" fill="#FFFFFF" />
+      <line x1="54" y1="4.5" x2="54" y2="23.5" stroke="#F6E9C5" strokeWidth="1.1" opacity="0.7" />
+      <line x1="44.5" y1="14" x2="63.5" y2="14" stroke="#F6E9C5" strokeWidth="1.1" opacity="0.7" />
+    </svg>
+  );
+}
+
+export default function Logo({ compact = false }) {
+  return (
+    <span className="flex items-center gap-3">
+      <LogoMark size={compact ? 38 : 44} />
+      <span className="leading-tight">
+        <span className="block whitespace-nowrap font-body text-[19px] font-extralight uppercase tracking-[0.3em] text-white">
+          Frank <span className="font-light text-accent">Louis</span>
+        </span>
+        <span className="mt-0.5 block whitespace-nowrap text-[8px] font-normal uppercase tracking-[0.5em] text-accent/80">
+          Chartered&nbsp;Accountants
+        </span>
+      </span>
+    </span>
+  );
+}
