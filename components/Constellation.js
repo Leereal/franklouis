@@ -4,7 +4,7 @@ export default function Constellation() {
   return (
     <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
       <svg
-        className="h-full w-full"
+        className="constellation-svg h-full w-full"
         viewBox="0 0 1600 900"
         preserveAspectRatio="xMidYMid slice"
         fill="none"
@@ -29,7 +29,7 @@ export default function Constellation() {
           <line x1="1260" y1="380" x2="1450" y2="220" strokeOpacity="0.08" />
           <line x1="1510" y1="610" x2="1240" y2="470" strokeOpacity="0.07" />
         </g>
-        <g className="drift-a" fill="#F4DFA6">
+        <g className="drift-a star-field" fill="#F4DFA6">
           {[
             [140, 250, 2], [320, 180, 1.5], [520, 340, 2], [240, 640, 1.6],
             [640, 560, 1.4], [820, 240, 1.8], [960, 520, 1.5], [1120, 90, 2],
@@ -44,8 +44,8 @@ export default function Constellation() {
         <circle cx="880" cy="120" r="2.2" fill="#F6E9C5" className="node-pulse" style={{ animationDelay: "2s" }} />
       </svg>
       {/* soft vignettes for depth */}
-      <div className="absolute -left-48 top-1/4 h-[500px] w-[500px] rounded-full bg-[#2E5B41]/30 blur-[160px]" />
-      <div className="absolute -right-40 bottom-0 h-[460px] w-[460px] rounded-full bg-[#57804A]/25 blur-[160px]" />
+      <div className="ambient-glow ambient-glow-left absolute -left-48 top-1/4 h-[500px] w-[500px] rounded-full bg-[#2E5B41]/30 blur-[160px]" />
+      <div className="ambient-glow ambient-glow-right absolute -right-40 bottom-0 h-[460px] w-[460px] rounded-full bg-[#57804A]/25 blur-[160px]" />
     </div>
   );
 }

@@ -79,17 +79,102 @@ h1, h2, h3, h4 {
   50% { opacity: 0.85; transform: scale(1.6); }
 }
 
+.constellation-svg {
+  animation: constellationFloat 42s ease-in-out infinite alternate;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.star-field circle {
+  animation: starTwinkle 4.5s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.star-field circle:nth-child(2n) { animation-delay: 0.9s; }
+.star-field circle:nth-child(3n) { animation-delay: 1.7s; }
+.star-field circle:nth-child(5n) { animation-delay: 2.6s; }
+
+.ambient-glow {
+  animation: ambientBreath 10s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+.ambient-glow-right { animation-delay: 2.4s; }
+
+.hero-plexus {
+  animation: heroFloat 7s ease-in-out infinite;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.plexus-face {
+  animation: faceGlow 5.8s ease-in-out infinite;
+}
+
+.plexus-line,
+.plexus-link {
+  animation: lineShimmer 4.8s ease-in-out infinite;
+}
+
+.summit-arrow {
+  animation: summitGlow 3.8s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes constellationFloat {
+  0% { transform: translate3d(-14px, 8px, 0) scale(1.02) rotate(-0.35deg); }
+  100% { transform: translate3d(18px, -14px, 0) scale(1.055) rotate(0.45deg); }
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.22; transform: scale(0.9); }
+  45% { opacity: 0.72; transform: scale(1.55); }
+  70% { opacity: 0.38; transform: scale(1.08); }
+}
+
+@keyframes ambientBreath {
+  0%, 100% { opacity: 0.55; transform: translate3d(0, 0, 0) scale(0.95); }
+  50% { opacity: 0.95; transform: translate3d(28px, -18px, 0) scale(1.15); }
+}
+
+@keyframes heroFloat {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(0, -18px, 0) rotate(0.7deg); }
+}
+
+@keyframes faceGlow {
+  0%, 100% { opacity: 0.72; }
+  50% { opacity: 1; }
+}
+
+@keyframes lineShimmer {
+  0%, 100% { stroke-opacity: 0.38; }
+  50% { stroke-opacity: 0.98; }
+}
+
+@keyframes summitGlow {
+  0%, 100% { opacity: 0.86; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.035); }
+}
+
 /* Slow ambient drift for background constellation */
 @keyframes drift1 {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(22px, -16px); }
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(38px, -28px, 0) rotate(0.7deg); }
 }
 @keyframes drift2 {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(-18px, 14px); }
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(-34px, 30px, 0) rotate(-0.8deg); }
 }
-.drift-a { animation: drift1 16s ease-in-out infinite; }
-.drift-b { animation: drift2 20s ease-in-out infinite; }
+.drift-a,
+.drift-b {
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform;
+}
+.drift-a { animation: drift1 14s ease-in-out infinite; }
+.drift-b { animation: drift2 18s ease-in-out infinite; }
 
 @keyframes fadeup {
   from { opacity: 0; transform: translateY(24px); }
@@ -100,7 +185,18 @@ h1, h2, h3, h4 {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; scroll-snap-type: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
-  .node-pulse, .drift-a, .drift-b, .animate-fadeup { animation: none !important; }
+  .node-pulse,
+  .constellation-svg,
+  .star-field circle,
+  .ambient-glow,
+  .hero-plexus,
+  .plexus-face,
+  .plexus-line,
+  .plexus-link,
+  .summit-arrow,
+  .drift-a,
+  .drift-b,
+  .animate-fadeup { animation: none !important; }
 }
 
 ::selection {
