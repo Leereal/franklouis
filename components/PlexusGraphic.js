@@ -2,8 +2,22 @@
    left-to-right into a bright summit node. Replaces the reference site's
    wireframe hands with a growth motif in the same visual language. */
 export default function PlexusGraphic() {
-  const B = [[30, 440], [140, 400], [250, 350], [360, 288], [460, 218], [522, 168]];
-  const T = [[70, 358], [180, 316], [290, 258], [396, 196], [482, 128], [528, 88]];
+  const B = [
+    [30, 440],
+    [140, 400],
+    [250, 350],
+    [360, 288],
+    [460, 218],
+    [522, 168],
+  ];
+  const T = [
+    [70, 358],
+    [180, 316],
+    [290, 258],
+    [396, 196],
+    [482, 128],
+    [528, 88],
+  ];
 
   const tris = [];
   for (let i = 0; i < 5; i++) {
@@ -11,7 +25,13 @@ export default function PlexusGraphic() {
     tris.push([T[i], T[i + 1], B[i + 1]]);
   }
 
-  const sats = [[96, 152], [214, 108], [420, 388], [534, 300], [330, 78]];
+  const sats = [
+    [96, 152],
+    [214, 108],
+    [420, 388],
+    [534, 300],
+    [330, 78],
+  ];
   const satLinks = [
     [[96, 152], T[0]],
     [[214, 108], T[1]],
@@ -31,7 +51,14 @@ export default function PlexusGraphic() {
       aria-label="Rising digital wireframe representing financial growth"
     >
       <defs>
-        <linearGradient id="plx" x1="30" y1="440" x2="580" y2="60" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="plx"
+          x1="30"
+          y1="440"
+          x2="580"
+          y2="60"
+          gradientUnits="userSpaceOnUse"
+        >
           <stop offset="0" stopColor="#B9862E" stopOpacity="0.5" />
           <stop offset="1" stopColor="#F0D89A" stopOpacity="0.95" />
         </linearGradient>
@@ -72,7 +99,10 @@ export default function PlexusGraphic() {
         <line
           key={`s${i}`}
           className="plexus-link"
-          x1={a[0]} y1={a[1]} x2={b[0]} y2={b[1]}
+          x1={a[0]}
+          y1={a[1]}
+          x2={b[0]}
+          y2={b[1]}
           stroke="#E0BE6F"
           strokeWidth="0.9"
           strokeOpacity="0.35"
@@ -100,14 +130,23 @@ export default function PlexusGraphic() {
       {sats.map(([x, y], i) => (
         <circle
           key={`sat${i}`}
-          cx={x} cy={y} r="2.6"
+          cx={x}
+          cy={y}
+          r="2.6"
           fill="#F6E9C5"
           className="node-pulse"
           style={{ animationDelay: `${i * 0.7}s` }}
         />
       ))}
       {/* bright summit star */}
-      <circle cx="590" cy="42" r="10" fill="#D9A441" opacity="0.3" filter="url(#glow)" />
+      <circle
+        cx="590"
+        cy="42"
+        r="10"
+        fill="#D9A441"
+        opacity="0.3"
+        filter="url(#glow)"
+      />
       <circle cx="590" cy="42" r="4" fill="#FFFFFF" filter="url(#glow)" />
     </svg>
   );

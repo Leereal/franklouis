@@ -18,11 +18,20 @@ html {
 
 body {
   @apply font-body text-white/75 antialiased;
-  background: linear-gradient(150deg, #10291F 0%, #1C4032 45%, #143327 78%, #0C231A 100%);
+  background: linear-gradient(
+    150deg,
+    #10291f 0%,
+    #1c4032 45%,
+    #143327 78%,
+    #0c231a 100%
+  );
   background-attachment: fixed;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   @apply font-body text-white;
 }
 
@@ -60,7 +69,8 @@ h1, h2, h3, h4 {
 .reveal {
   opacity: 0;
   transform: translateY(28px);
-  transition: opacity 0.8s cubic-bezier(0.2, 0.7, 0.3, 1),
+  transition:
+    opacity 0.8s cubic-bezier(0.2, 0.7, 0.3, 1),
     transform 0.8s cubic-bezier(0.2, 0.7, 0.3, 1);
 }
 .reveal.is-visible {
@@ -75,8 +85,15 @@ h1, h2, h3, h4 {
   transform-origin: center;
 }
 @keyframes nodePulse {
-  0%, 100% { opacity: 0.25; transform: scale(1); }
-  50% { opacity: 0.85; transform: scale(1.6); }
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.6);
+  }
 }
 
 .constellation-svg {
@@ -91,15 +108,23 @@ h1, h2, h3, h4 {
   transform-origin: center;
 }
 
-.star-field circle:nth-child(2n) { animation-delay: 0.9s; }
-.star-field circle:nth-child(3n) { animation-delay: 1.7s; }
-.star-field circle:nth-child(5n) { animation-delay: 2.6s; }
+.star-field circle:nth-child(2n) {
+  animation-delay: 0.9s;
+}
+.star-field circle:nth-child(3n) {
+  animation-delay: 1.7s;
+}
+.star-field circle:nth-child(5n) {
+  animation-delay: 2.6s;
+}
 
 .ambient-glow {
   animation: ambientBreath 10s ease-in-out infinite;
   will-change: transform, opacity;
 }
-.ambient-glow-right { animation-delay: 2.4s; }
+.ambient-glow-right {
+  animation-delay: 2.4s;
+}
 
 .hero-plexus {
   animation: heroFloat 7s ease-in-out infinite;
@@ -123,49 +148,102 @@ h1, h2, h3, h4 {
 }
 
 @keyframes constellationFloat {
-  0% { transform: translate3d(-14px, 8px, 0) scale(1.02) rotate(-0.35deg); }
-  100% { transform: translate3d(18px, -14px, 0) scale(1.055) rotate(0.45deg); }
+  0% {
+    transform: translate3d(-14px, 8px, 0) scale(1.02) rotate(-0.35deg);
+  }
+  100% {
+    transform: translate3d(18px, -14px, 0) scale(1.055) rotate(0.45deg);
+  }
 }
 
 @keyframes starTwinkle {
-  0%, 100% { opacity: 0.22; transform: scale(0.9); }
-  45% { opacity: 0.72; transform: scale(1.55); }
-  70% { opacity: 0.38; transform: scale(1.08); }
+  0%,
+  100% {
+    opacity: 0.22;
+    transform: scale(0.9);
+  }
+  45% {
+    opacity: 0.72;
+    transform: scale(1.55);
+  }
+  70% {
+    opacity: 0.38;
+    transform: scale(1.08);
+  }
 }
 
 @keyframes ambientBreath {
-  0%, 100% { opacity: 0.55; transform: translate3d(0, 0, 0) scale(0.95); }
-  50% { opacity: 0.95; transform: translate3d(28px, -18px, 0) scale(1.15); }
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: translate3d(0, 0, 0) scale(0.95);
+  }
+  50% {
+    opacity: 0.95;
+    transform: translate3d(28px, -18px, 0) scale(1.15);
+  }
 }
 
 @keyframes heroFloat {
-  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
-  50% { transform: translate3d(0, -18px, 0) rotate(0.7deg); }
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -18px, 0) rotate(0.7deg);
+  }
 }
 
 @keyframes faceGlow {
-  0%, 100% { opacity: 0.72; }
-  50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0.72;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 @keyframes lineShimmer {
-  0%, 100% { stroke-opacity: 0.38; }
-  50% { stroke-opacity: 0.98; }
+  0%,
+  100% {
+    stroke-opacity: 0.38;
+  }
+  50% {
+    stroke-opacity: 0.98;
+  }
 }
 
 @keyframes summitGlow {
-  0%, 100% { opacity: 0.86; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.035); }
+  0%,
+  100% {
+    opacity: 0.86;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.035);
+  }
 }
 
 /* Slow ambient drift for background constellation */
 @keyframes drift1 {
-  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
-  50% { transform: translate3d(38px, -28px, 0) rotate(0.7deg); }
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(38px, -28px, 0) rotate(0.7deg);
+  }
 }
 @keyframes drift2 {
-  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
-  50% { transform: translate3d(-34px, 30px, 0) rotate(-0.8deg); }
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(-34px, 30px, 0) rotate(-0.8deg);
+  }
 }
 .drift-a,
 .drift-b {
@@ -173,18 +251,37 @@ h1, h2, h3, h4 {
   transform-origin: center;
   will-change: transform;
 }
-.drift-a { animation: drift1 14s ease-in-out infinite; }
-.drift-b { animation: drift2 18s ease-in-out infinite; }
+.drift-a {
+  animation: drift1 14s ease-in-out infinite;
+}
+.drift-b {
+  animation: drift2 18s ease-in-out infinite;
+}
 
 @keyframes fadeup {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-.animate-fadeup { animation: fadeup 0.9s cubic-bezier(0.2, 0.7, 0.3, 1) both; }
+.animate-fadeup {
+  animation: fadeup 0.9s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; scroll-snap-type: none; }
-  .reveal { opacity: 1; transform: none; transition: none; }
+  html {
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
   .node-pulse,
   .constellation-svg,
   .star-field circle,
@@ -196,7 +293,9 @@ h1, h2, h3, h4 {
   .summit-arrow,
   .drift-a,
   .drift-b,
-  .animate-fadeup { animation: none !important; }
+  .animate-fadeup {
+    animation: none !important;
+  }
 }
 
 ::selection {
